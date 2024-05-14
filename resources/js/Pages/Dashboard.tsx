@@ -11,7 +11,7 @@ export default function Dashboard({ prices }: PageProps) {
             <div>
                 <div className="flex justify-between font-bold mb-3">
                     <span>Tijdstip</span>
-                    <span>Prijs</span>
+                    <span>Prijs p/kWh</span>
                 </div>
 
                 <div className="grid gap-y-1">
@@ -21,16 +21,16 @@ export default function Dashboard({ prices }: PageProps) {
                             className="flex justify-between"
                         >
                             <span>
-                                {DateTime.fromISO(price.dateTime).toFormat(
-                                    "cccc t",
-                                )}
+                                {DateTime.fromISO(price.dateTime)
+                                    .setLocale("nl")
+                                    .toFormat("cccc t")}
                             </span>
 
-                            <span>
+                            <span className="tabular-nums">
                                 &euro;{" "}
-                                {(price.priceTotalTaxIncluded / 100000).toFixed(
-                                    3,
-                                )}
+                                {(
+                                    price.priceTotalTaxIncluded / 10000000
+                                ).toFixed(3)}
                             </span>
                         </div>
                     ))}
