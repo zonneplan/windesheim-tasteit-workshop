@@ -17,7 +17,7 @@ class DashboardController extends Controller
         $prices = $response->json('data.energyData.electricity.hours');
 
         return Inertia::render('Dashboard', [
-            'prices' => $prices,
+            'prices' => collect($prices)->reverse()->values(),
         ]);
     }
 }
