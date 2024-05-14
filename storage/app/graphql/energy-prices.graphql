@@ -1,0 +1,21 @@
+{
+  energyData {
+    electricity {
+      hours {
+        dateTime
+        priceTotalTaxIncluded
+        priceInclHandlingVat
+        priceEnergyTaxes
+        pricingProfile
+      }
+    }
+    gas {
+      days {
+        dateTime
+        priceTotalTaxIncluded
+        priceInclHandlingVat
+        priceEnergyTaxes
+      }
+    }
+  }
+}
